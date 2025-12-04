@@ -1,4 +1,4 @@
-# 🔒 Privacy-First Personal Agent
+# 🔒 Vault
 
 > **100% Local • Zero Cloud • Maximum Privacy**
 
