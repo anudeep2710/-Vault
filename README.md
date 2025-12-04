@@ -10,7 +10,7 @@ A privacy-first intelligent agent that processes highly sensitive personal data 
 - **Mood Analysis**: Automatic sentiment analysis using TextBlob
 - **Pattern Detection**: Identify mood trends over time
 - **Trigger Detection**: Recognize concerning patterns
-- **AI Insights**: Local LLM analyzes your entries (optional)
+- **AI Insights**: Local LLM analyzes your entries 
 - **Complete Privacy**: Your thoughts stay on your device
 
 ### 💰 Finance Tracker
