@@ -12,6 +12,9 @@ from llm_handler import get_llm_handler
 from database import PrivacyDatabase
 from config import FEATURES
 from utils import setup_logging
+from excel_export import ExcelExporter
+from global_search import GlobalSearch
+from tags_favorites import FavoritesManager
 
 logger = setup_logging()
 
@@ -34,6 +37,11 @@ class PrivacyAgent:
         # Database for privacy audit
         self.db = PrivacyDatabase()
         self.db.connect()
+        
+        # Additional features
+        self.excel_exporter = ExcelExporter()
+        self.search = GlobalSearch()
+        self.favorites = FavoritesManager()
         
         logger.info("[OK] Privacy-First Personal Agent initialized")
         logger.info(f"  LLM Available: {self.llm.available}")
@@ -135,6 +143,51 @@ class PrivacyAgent:
     def get_privacy_audit(self, module: str = None, days: int = 7) -> list:
         """Get privacy audit logs."""
         return self.db.get_audit_log(module=module, days=days)
+    
+    # ========== Excel Export Methods ==========
+    
+    def export_to_excel(self, module: str = "all") -> str:
+        """
+        Export data to Excel.
+        
+        Args:
+            module: 'journal', 'finance', 'documents', or 'all'
+            
+        Returns:
+            Path to exported file
+        """
+        if module == "all":
+            return self.excel_exporter.export_all(
+                self.get_journal_entries(days=9999),
+                self.get_transactions(days=9999),
+                self.get_documents(limit=9999)
+            )
+        elif module == "journal":
+            return self.excel_exporter.export_journal(self.get_journal_entries(days=9999))
+        elif module == "finance":
+            return self.excel_exporter.export_transactions(self.get_transactions(days=9999))
+        elif module == "documents":
+            return self.excel_exporter.export_documents(self.get_documents(limit=9999))
+    
+    # ========== Global Search Methods ==========
+    
+    def search_all(self, query: str, limit: int = 50) -> Dict[str, Any]:
+        """Search across all modules."""
+        return self.search.search_all(query, limit)
+    
+    # ========== Favorites Methods ==========
+    
+    def add_favorite(self, module: str, item_id: int) -> bool:
+        """Mark an item as favorite."""
+        return self.favorites.add_favorite(module, item_id)
+    
+    def remove_favorite(self, module: str, item_id: int) -> bool:
+        """Remove item from favorites."""
+        return self.favorites.remove_favorite(module, item_id)
+    
+    def get_favorites(self, module: str = None) -> List:
+        """Get all favorites."""
+        return self.favorites.get_favorites(module)
     
     def export_data(self, export_path: str = None) -> str:
         """Export all data (for GDPR-like data portability)."""
