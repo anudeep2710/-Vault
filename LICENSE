@@ -1,0 +1,41 @@
+MIT License
+
+Copyright (c) 2024 Privacy-First Personal Agent
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+PRIVACY NOTICE:
+
+This software is designed to process sensitive personal data entirely on your
+local device. The authors make no warranties about the security of your data
+and recommend:
+
+1. Using full-disk encryption on your device
+2. Using strong passwords/authentication
+3. Keeping your system updated
+4. Backing up your encryption keys securely
+5. Not using this software on shared or public computers
+
+The software does not transmit data to external servers (except to localhost
+Ollama if configured). However, the authors are not responsible for any data
+breaches, loss, or unauthorized access to your information.
+
+USE AT YOUR OWN RISK.
